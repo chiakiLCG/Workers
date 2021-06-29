@@ -3,14 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user_no = params[:session][:user_no]
-    password = params[:session][:password]
-    if login(user_no, password)
-      flash[:success] = 'ログインに成功しました。'
-      redirect_to @user
+    user = User.find_by(user_no: params[:session][:user_no])
+    if user && user.authenticate(params[:session][:password])
+      log_in user
+      redirect_back_or root_url
     else
-      flash.now[:danger] = 'ログインに失敗しました。'
-      render :new
+      flash.now[:danger] = 'メールアドレスまたはパスワードが違います。'
+      render 'new'
     end
   end
 
