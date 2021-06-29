@@ -3,11 +3,9 @@
 <!-- Original CSS -->
 <link href="/stylesheets/style.css" rel="stylesheet">
 
-<title>ログイン | Works</title>
+<title>詳細 | Workers</title>
 <body class="text-center bg-light">
-  <div>
-    <img class="mb-4" src="/img/WoRKs-logo.png" width="80" height="100">
-  </div>
+
   <form class="border rounded bg-white form-time-table" action="index.erb">
       <h1 class="h3 my-3">月別リスト</h1>
     <select class="form-select rounded-pill mb-3" aria-label="Default select example">
@@ -65,12 +63,11 @@
       </tbody>
     </table>
   </form>
+
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Launch demo modal
   </button>
-
-  <%= link_to 'Logout', logout_path, method: :delete %>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -97,7 +94,8 @@
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder="退勤">
                   <span class="input-group-text" id="basic-addon1">打刻</span>
-                </div>              </div>
+                </div>
+              </div>
               <div class="col-sm">
                 <input type="text" class="form-control" placeholder="休憩">
               </div>
@@ -114,3 +112,5 @@
     </div>
   </div>
 </body>
+
+<%= link_to 'Logout', logout_path, method: :delete %>
