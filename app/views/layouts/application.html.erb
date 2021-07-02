@@ -16,7 +16,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <div>
+      <img class="mb-4" src="/img/Workers-logo.png" width="80" height="90">
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
  
     <!-- Optional JavaScript -->
     <!-- Popper.js first, then Bootstrap JS -->
