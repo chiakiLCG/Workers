@@ -1,0 +1,113 @@
+<!-- fontawesome -->
+<script src="https://kit.fontawesome.com/af75622bf0.js" crossorigin="anonymous"></script>
+
+<title>詳細 | Workers</title>
+<body class="text-center bg-light">
+  <form class="border rounded bg-white form-time-table" action="index.erb">
+      <h1 class="h3 my-3">月別リスト</h1>
+
+        <%= link_to 'Logout', logout_path, method: :delete %>
+
+    <select class="form-select rounded-pill mb-3" aria-label="Default select example">
+      <option>2021/06</option>
+    </select>
+
+    <div class="card text-start my-4" style="width: auto;">
+      <div class="card-header">
+        実働日数
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+      </ul>
+    </div>
+
+    <div class="card text-start my-4" style="width: auto;">
+      <div class="card-header">
+        残業時間
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+      </ul>
+    </div>
+
+    <div class="card text-start my-4" style="width: auto;">
+      <div class="card-header">
+        残有給休暇
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+      </ul>
+    </div>
+
+
+    <table class="table table-bordered">
+      <thead>
+        <tr class="bg-light">
+          <th scope="col">日</th>
+          <th scope="col">出勤</th>
+          <th scope="col">退勤</th>
+          <th scope="col">休憩</th>
+          <th scope="col">業務内容</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1（月）</th>
+          <td>09:00</td>
+          <td>18:00</td>
+          <td>01:00</td>
+          <td>テキストテキストテキストテキストテキストテキス....</td>
+          <td><i class="fas fa-pencil-alt"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+        <p></p>
+          <h5 class="modal-title" id="exampleModalLabel">日報登録</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="alert alert-primary" role="alert">
+            11/1（月）
+            </div>
+            <div class="row">
+              <div class="col-sm">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="出勤">
+                  <span class="input-group-text" id="basic-addon1">打刻</span>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="退勤">
+                  <span class="input-group-text" id="basic-addon1">打刻</span>
+                </div>              </div>
+              <div class="col-sm">
+                <input type="text" class="form-control" placeholder="休憩">
+              </div>
+            </div>
+            <div class="mb-3 pt-3">
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="業務内容"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary text-white rounded-pill px-5">登録</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
