@@ -16,13 +16,17 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div>
-      <img class="mb-4" src="/img/Workers-logo.png" width="80" height="90">
+    <% if logged_in? %>
+      <div class="container-fluid">
+        <div class="row">
+          <%= render 'layouts/sidebar' %>
+            <%= yield %>
+    <% else %>
+            <%= yield %>
+    <% end %>
+      </div>
     </div>
-    <div class="container">
-      <%= yield %>
-    </div>
- 
+
     <!-- Optional JavaScript -->
     <!-- Popper.js first, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
