@@ -63,3 +63,46 @@
       </tbody>
     </table>
   </form>
+</body>
+
+<!-- Modal -->
+<div class="modal fade" id="inputAttendanceModal" tabindex="-1" aria-labelledby="inputAttendanceModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      <p></p>
+        <h5 class="modal-title" id="exampleModalLabel">日報登録</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="alert alert-primary" role="alert">
+          11/1（月）
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="出勤">
+                <span class="input-group-text" id="basic-addon1">打刻</span>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="退勤">
+                <span class="input-group-text" id="basic-addon1">打刻</span>
+              </div>              </div>
+            <div class="col-sm">
+              <input type="text" class="form-control" placeholder="休憩">
+            </div>
+          </div>
+          <div class="mb-3 pt-3">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="業務内容"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary text-white rounded-pill px-5">登録</button>
+      </div>
+    </div>
+  </div>
+</div>
