@@ -69,7 +69,7 @@
           <td>18:00</td>
           <td>01:00</td>
           <td>テキストテキストテキストテキストテキストテキス....</td>
-          <td><i class="fas fa-pencil-alt"></i></td>
+          <td><button type="button" class="btn btn-default h-auto py-0" data-toggle="modal" data-target="#inputAttendanceModal"> <i class="fas fa-pencil-alt"></i></button></td>
         </tr>
       </tbody>
     </table>
@@ -81,9 +81,10 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-      <p></p>
-        <h5 class="modal-title" id="exampleModalLabel">日報登録</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="inputAttendanceModalLabel">日報登録</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
         <div class="container">
@@ -94,14 +95,15 @@
             <div class="col-sm">
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="出勤">
-                <span class="input-group-text" id="basic-addon1">打刻</span>
+                <button class="button" class="input-group-text" id="start_btn">打刻</button>
               </div>
             </div>
             <div class="col-sm">
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="退勤">
-                <span class="input-group-text" id="basic-addon1">打刻</span>
-              </div>              </div>
+                <button class="button" class="input-group-text" id="end_btn">打刻</button>
+              </div>
+            </div>
             <div class="col-sm">
               <input type="text" class="form-control" placeholder="休憩">
             </div>
@@ -117,3 +119,4 @@
     </div>
   </div>
 </div>
+
