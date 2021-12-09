@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   
   get 'show', to: 'users#show'
+  get 'paid_holidays', to: 'works#paid_holidays'
 
   delete 'logout', to: 'sessions#destroy'
 

@@ -1,0 +1,98 @@
+<!-- fontawesome -->
+<script src="https://kit.fontawesome.com/af75622bf0.js" crossorigin="anonymous"></script>
+
+<title>休暇申請一覧 | Workers</title>
+<body class="text-center bg-light">
+  <form class="mx-auto col-lg-9 rounded bg-white form-time-table" action="index.erb">
+      <h1 class="h3 my-3">休暇申請一覧</h1>
+
+        <%= link_to 'Logout', logout_path, method: :delete %>
+
+    <button type="btn btn-primary text-white rounded-pill px-4">新規申請</button>
+
+    <div class="card text-start my-4" style="width: auto;">
+      <div class="card-header">
+        実働日数
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+      </ul>
+    </div>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr class="bg-light">
+          <th scope="col">申請No</th>
+          <th scope="col">休暇希望日</th>
+          <th scope="col">承認・却下</th>
+          <th scope="col">申請内容</th>
+          <th scope="col">申請日</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>2021/01/19</td>
+          <td>承認</td>
+          <td>有給休暇（全日）</td>
+          <td>2021/01/05</td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</body>
+
+<!-- Modal -->
+<div class="modal fade" id="inputPaidHolidaysModal" tabindex="-1" aria-labelledby="inputPaidHolidaysModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="inputPaidHolidaysModalLabel">日報登録</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="alert alert-primary" role="alert">
+          11/1（月）
+          </div>
+          <div class="row">
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">休暇名</label>
+              <div class="col-sm-6">
+                <select class="form-select rounded-pill mb-3" aria-label="Default select example">
+                  <option>有給休暇（全日）</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPassword" class="col-sm-2 col-form-label">休暇希望日</label>
+              <input type="text" class="form-control" id="inputCity">
+              <label for="inputCity">年</label>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputState">State</label>
+              <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>...</option>
+                <label for="inputCity">月</label>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputZip">Zip</label>
+              <input type="text" class="form-control" id="inputZip">
+              <label for="inputCity">日</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary text-white rounded-pill px-5">申請</button>
+      </div>
+    </div>
+  </div>
+</div>
+
