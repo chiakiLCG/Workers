@@ -35,8 +35,6 @@ gem 'bootstrap_form'
 gem 'kaminari'
 # acts_as_paranoid for Rails 3, 4 and 5
 gem 'paranoia'
-# Factory Bot Rails
-gem 'factory_bot_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -52,6 +50,8 @@ group :development, :test do
   gem 'bullet'
   # Shim to load environment variables from .env into ENV in development.
   gem 'dotenv-rails'
+  # Factory Bot Rails
+  gem 'factory_bot_rails'
 end
 
 group :development do
