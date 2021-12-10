@@ -10,3 +10,6 @@ Style/MixinUsage:
 MethodLength:
   CountComments: false
   Max: 20
+
+Style/AsciiComments:
+  Enabled: false
