@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     user_no = params[:session][:user_no]
@@ -24,13 +23,11 @@ class SessionsController < ApplicationController
 
   def login(user_no, password)
     @user = User.find_by(user_no: user_no)
-    if @user && @user.authenticate(password)
-      # ログイン成功
+    if @user&.authenticate(password)
       session[:user_id] = @user.id
-      return true
+      true
     else
-      # ログイン失敗
-      return false
+      false
     end
   end
 end

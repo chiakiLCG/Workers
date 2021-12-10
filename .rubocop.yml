@@ -1,0 +1,12 @@
+Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+MethodLength:
+  CountComments: false
+  Max: 20
