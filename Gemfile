@@ -76,6 +76,7 @@ group :development do
   # Suport ED25519 ssh keys in capistrano
   gem 'bcrypt_pbkdf', '< 2.0'
   gem 'ed25519', '< 2.0'
+  gem 'i18n_generators'
 end
 
 group :test do
