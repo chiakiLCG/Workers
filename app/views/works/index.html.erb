@@ -69,7 +69,7 @@
           <td>18:00</td>
           <td>01:00</td>
           <td>テキストテキストテキストテキストテキストテキス....</td>
-          <td><button type="button" class="btn btn-default h-auto py-0" data-toggle="modal" data-target="#inputAttendanceModal"> <i class="fas fa-pencil-alt"></i></button></td>
+          <td><button type="button" class="btn btn-default h-auto py-0" data-toggle="modal" data-target="#inputModal"> <i class="fas fa-pencil-alt"></i></button></td>
         </tr>
       </tbody>
     </table>
@@ -77,11 +77,11 @@
 </body>
 
 <!-- Modal -->
-<div class="modal fade" id="inputAttendanceModal" tabindex="-1" aria-labelledby="inputAttendanceModalLabel" aria-hidden="true">
+<div class="modal fade" id="inputModal" tabindex="-1" aria-labelledby="inputModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="inputAttendanceModalLabel">日報登録</h5>
+        <h5 class="modal-title" id="inputModalLabel">日報登録</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -94,13 +94,15 @@
           <div class="row">
             <div class="col-sm">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="出勤">
+                <input type="text" class="form-control" placeholder="出勤" id="modal_start_time"
+                name="modal_start_time">
                 <button class="button" class="input-group-text" id="start_btn">打刻</button>
               </div>
             </div>
             <div class="col-sm">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="退勤">
+                <input type="text" class="form-control" placeholder="退勤" id="modal_end_time"
+                name="modal_end_time">
                 <button class="button" class="input-group-text" id="end_btn">打刻</button>
               </div>
             </div>
@@ -124,4 +126,17 @@
 var inputModal = new bootstrap.Modal(document.getElementById('inputModal'));
 inputModal.toggle();
 
+$('#start_btn').click(function(){
+  const now = new Date();
+  const hour = now.getHours().toString().padStart(2,'0');
+  const minute = now.getMinutes().toString().padStart(2,'0');
+  $('#modal_start_time').val(hour+':'+minute);
+})
+
+$('#end_btn').click(function(){
+  const now = new Date();
+  const hour = now.getHours().toString().padStart(2,'0');
+  const minute = now.getMinutes().toString().padStart(2,'0');
+  $('#modal_end_time').val(hour+':'+minute);
+})
 </script>
