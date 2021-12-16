@@ -77,50 +77,52 @@
 </body>
 
 <!-- Modal -->
-<div class="modal fade" id="inputModal" tabindex="-1" aria-labelledby="inputModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="inputModalLabel">日報登録</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="container">
-          <div class="alert alert-primary" role="alert">
-            <p id="showTime"></p>
-          </div>
-          <div class="row">
-            <div class="col-sm">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="出勤" id="modal_start_time"
-                name="modal_start_time">
-                <button class="button" class="input-group-text" id="start_btn">打刻</button>
+<%= form_with(model: @work, local:true) do |f| %>
+  <div class="modal fade" id="inputModal" tabindex="-1" aria-labelledby="inputModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inputModalLabel">日報登録</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="alert alert-primary" role="alert">
+              <p id="showTime"></p>
+            </div>
+            <div class="row">
+              <div class="col-sm">
+                <div class="input-group">
+                  <input type="text" class="form-control"  id="modal_start_time" placeholder="出勤"
+                  name="modal_start_time">
+                  <%= f.submit "打刻", class: "input-group-text", id: "start_btn", name: "modal_start_time", placeholder: "出勤" %>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="退勤" id="modal_end_time"
+                  name="modal_end_time">
+                  <%= f.submit "打刻", class: "input-group-text", id: "end_btn", name: "modal_end_time", placeholder: "退勤" %>
+                </div>
+              </div>
+              <div class="col-sm">
+                <input type="text" class="form-control" placeholder="休憩" name="modal_break_time" value="01:00">
               </div>
             </div>
-            <div class="col-sm">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="退勤" id="modal_end_time"
-                name="modal_end_time">
-                <button class="button" class="input-group-text" id="end_btn">打刻</button>
-              </div>
+            <div class="mb-3 pt-3">
+              <textarea class="form-control" id="modal_comment" rows="5" placeholder="業務内容"></textarea>
             </div>
-            <div class="col-sm">
-              <input type="text" class="form-control" placeholder="休憩" name="modal_break_time" value="01:00">
-            </div>
-          </div>
-          <div class="mb-3 pt-3">
-            <textarea class="form-control" id="modal_comment" rows="5" placeholder="業務内容"></textarea>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary text-white rounded-pill px-5">登録</button>
+        <div class="modal-footer">
+          <%= f.submit "登録", class: "btn btn-primary text-white rounded-pill px-5" %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <script>
 var inputModal = new bootstrap.Modal(document.getElementById('inputModal'));
