@@ -10,25 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_630_022_421) do
-  create_table 'users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
-    t.string 'user_no'
-    t.string 'name'
-    t.string 'password_digest'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+ActiveRecord::Schema.define(version: 2021_12_16_131230) do
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "user_id"
+    t.string "name"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'works', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
-    t.integer 'user_id'
-    t.date 'date', null: false
-    t.time 'start_time', null: false
-    t.time 'end_time', null: false
-    t.time 'break_time', null: false
-    t.text 'comment', null: false
-    t.integer 'weekday_overtime', null: false
-    t.integer 'paid_holidays', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.integer "user_id"
+    t.date "date"
+    t.time "start_time"
+    t.time "end_time"
+    t.time "break_time"
+    t.text "comment"
+    t.integer "weekday_overtime"
+    t.integer "paid_holidays"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
 end
