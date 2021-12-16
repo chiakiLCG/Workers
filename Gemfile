@@ -42,8 +42,6 @@ group :development, :test do
   gem 'rspec-rails'
   # Code coverage for Ruby
   gem 'simplecov'
-  # 'pry' is a runtime developer console and IRB alternative with powerful introspection capabilities.
-  gem 'pry-rails'
   # Step-by-step debugging and stack navigation in Pry
   gem 'pry-byebug'
   # Help to kill N+1 queries and unused eager loading
@@ -77,6 +75,8 @@ group :development do
   gem 'bcrypt_pbkdf', '< 2.0'
   gem 'ed25519', '< 2.0'
   gem 'i18n_generators'
+    # 'pry' is a runtime developer console and IRB alternative with powerful introspection capabilities.
+  gem 'pry-rails'
 end
 
 group :test do
