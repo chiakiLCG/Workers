@@ -93,26 +93,26 @@
               <p id="showTime"></p>
             </div>
             <div class="row">
-              <div class="col-sm">
+              <div class="col-5 pr-1">
                 <div class="input-group">
-                  <input type="text" class="form-control"  id="modal_start_time" placeholder="出勤"
-                  name="modal_start_time">
-                  <%= f.submit "打刻", class: "input-group-text", id: "start_btn", name: "modal_start_time", placeholder: "出勤" %>
+                  <input type="time" class="form-control" id="start_time" placeholder="出勤"
+                  name="start_time">
+                  <button type="button" class="input-group-text" id="start_btn">出勤</button>
                 </div>
               </div>
-              <div class="col-sm">
+              <div class="col-5 px-1">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="退勤" id="modal_end_time"
-                  name="modal_end_time">
-                  <%= f.submit "打刻", class: "input-group-text", id: "end_btn", name: "modal_end_time", placeholder: "退勤" %>
+                  <input type="time" class="form-control" placeholder="退勤" id="end_time"
+                  name="end_time">
+                  <button type="button" class="input-group-text" id="end_btn">退勤</button>
                 </div>
               </div>
-              <div class="col-sm">
-                <input type="text" class="form-control" placeholder="休憩" name="modal_break_time" value="01:00">
+              <div class="col-2 pl-1">
+                <input type="text" class="form-control" placeholder="休憩" name="break_time" value="1:00">
               </div>
             </div>
             <div class="mb-3 pt-3">
-              <textarea class="form-control" id="modal_comment" rows="5" placeholder="業務内容"></textarea>
+              <textarea class="form-control" rows="5" placeholder="業務内容"></textarea>
             </div>
           </div>
         </div>
@@ -132,13 +132,13 @@ $('#start_btn').click(function(){
   const now = new Date();
   const hour = now.getHours().toString().padStart(2,'0');
   const minute = now.getMinutes().toString().padStart(2,'0');
-  $('#modal_start_time').val(hour+':'+minute);
+  $('#start_time').val(hour+':'+minute);
 })
 
 $('#end_btn').click(function(){
   const now = new Date();
   const hour = now.getHours().toString().padStart(2,'0');
   const minute = now.getMinutes().toString().padStart(2,'0');
-  $('#modal_end_time').val(hour+':'+minute);
+  $('#end_time').val(hour+':'+minute);
 })
 </script>

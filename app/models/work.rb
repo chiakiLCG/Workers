@@ -6,4 +6,5 @@ class Work < ApplicationRecord
   # validates :comment, presence: true
   # validates :weekday_overtime, presence: true
   # validates :paid_holidays, presence: true
+  belongs_to :user
 end
