@@ -16,3 +16,21 @@ Style/AsciiComments:
 
 Metrics/AbcSize:
   Max: 25
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+StringLiterals:
+  EnforcedStyle: single_quotes
