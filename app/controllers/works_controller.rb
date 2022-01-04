@@ -29,6 +29,6 @@ class WorksController < ApplicationController
   private
 
   def timecard_params
-    params.permit(:start_time, :end_time, :break_time)
+    params.permit(:start_time, :end_time, :break_time, :comment)
   end
 end
