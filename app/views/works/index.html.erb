@@ -63,14 +63,16 @@
         </tr>
       </thead>
       <tbody>
+      <% @works.each do |work| %>
         <tr>
-          <th scope="row">1（月）</th>
-          <td>09:00</td>
-          <td>18:00</td>
-          <td>01:00</td>
-          <td>テキストテキストテキストテキストテキストテキス....</td>
+          <th><%= work.date %></th>
+          <td><%= work.start_time %></td>
+          <td><%= work.end_time %></td>
+          <td><%= work.break_time %></td>
+          <td><%= work.comment %></td>
           <td><button type="button" class="btn btn-default h-auto py-0" data-toggle="modal" data-target="#inputModal"> <i class="fas fa-pencil-alt"></i></button></td>
         </tr>
+      <% end %>
       </tbody>
     </table>
   </form>
