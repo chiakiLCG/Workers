@@ -75,7 +75,7 @@ group :development do
   gem 'bcrypt_pbkdf', '< 2.0'
   gem 'ed25519', '< 2.0'
   gem 'i18n_generators'
-    # 'pry' is a runtime developer console and IRB alternative with powerful introspection capabilities.
+  # 'pry' is a runtime developer console and IRB alternative with powerful introspection capabilities.
   gem 'pry-rails'
 end
 

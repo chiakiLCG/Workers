@@ -10,27 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_16_131230) do
-
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "user_id"
-    t.string "name"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+ActiveRecord::Schema.define(version: 20_211_227_132_502) do
+  create_table 'users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb3', force: :cascade do |t|
+    t.string 'name'
+    t.string 'password_digest'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.integer "user_id"
-    t.date "date"
-    t.time "start_time"
-    t.time "end_time"
-    t.time "break_time"
-    t.text "comment"
-    t.integer "weekday_overtime"
-    t.integer "paid_holidays"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'works', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb3', force: :cascade do |t|
+    t.bigint 'user_id'
+    t.time 'break_time'
+    t.text 'comment'
+    t.integer 'weekday_overtime'
+    t.integer 'paid_holidays'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.time 'start_time'
+    t.time 'end_time'
+    t.date 'date'
+    t.index ['user_id'], name: 'fk_rails_2d4237af37'
   end
 
+  add_foreign_key 'works', 'users'
 end
