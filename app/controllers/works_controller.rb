@@ -16,9 +16,9 @@ class WorksController < ApplicationController
     @work = current_user.works.build(timecard_params)
     @work.date = Date.today
     if @work.save
-      redirect_to works_path, notice: '今日も1日頑張りましょう！'
+      redirect_to works_path, flash: { info: '打刻登録しました' }
     else
-      flash.now[:danger] = '出勤打刻登録に失敗しました。'
+      flash.now[:danger] = '出勤打刻登録に失敗しました'
       render :index
     end
   end
