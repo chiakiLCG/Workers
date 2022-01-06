@@ -7,10 +7,19 @@ function set(num) {
 }
 function showClock() {
   const nowTime = new Date(); //現在日時
-  const nowHour = set(nowTime.getHours()); //時間
-  const nowMin = set(nowTime.getMinutes()); //分
-  const nowSec = set(nowTime.getSeconds()); //秒
-  const msg = "現在時刻は、" + nowHour + ":" + nowMin + ":" + nowSec + " です。";
-  document.getElementById("showTime").innerHTML = msg;
+
+  // 年・月・日・曜日を取得
+  const year = nowTime.getFullYear();
+  const month = nowTime.getMonth() + 1;
+  const date = nowTime.getDate();
+  const day = nowTime.getDay();
+  const weekday = ["日","月","火","水","木","金","土"];
+
+  // 時間を取得
+  const nowHour = set(nowTime.getHours());
+  const nowMin = set(nowTime.getMinutes());
+  const nowSec = set(nowTime.getSeconds());
+  const DateTime = year + "年" + month + "月" + date + "日" + "(" + weekday[day] + ")" + nowHour + ":" + nowMin + ":" + nowSec;
+  document.getElementById("showTime").innerHTML = DateTime;
 }
 setInterval('showClock()', 1000);
