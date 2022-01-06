@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-sm flex-md-nowrap p-0 navbar-dark fix-top bg-dark">
+  <a class="navbar-brand" href="/">
+    <img class src="/img/Workers-logo-white.png" width="120" height="50">
+  </a>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <% if logged_in? %>
+        <li class="nav-item ">
+          <a class="nav-link" href="#">
+            <img class="mb-2 mr-2" src="/img/user.png" width="24" height="24">山田太郎
+         </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="#">
+            <img class="ml-3 mb-2 mr-2" src="/img/logout.png" width="24" height="24">ログアウト
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

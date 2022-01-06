@@ -1,13 +1,12 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
-    user_no = params[:session][:user_no]
+    user_id = params[:session][:user_id]
     password = params[:session][:password]
-    if login(user_no, password)
+    if login(user_id, password)
       flash[:success] = 'ログインに成功しました。'
-      redirect_to @user
+      redirect_to controller: :works, action: :index
     else
       flash.now[:danger] = 'ログインに失敗しました。'
       render :new
@@ -22,16 +21,13 @@ class SessionsController < ApplicationController
 
   private
 
-  def login(user_no, password)
-    @user = User.find_by(user_no: user_no)
-    if @user && @user.authenticate(password)
-      # ログイン成功
+  def login(user_id, password)
+    @user = User.find_by(user_id: user_id)
+    if @user&.authenticate(password)
       session[:user_id] = @user.id
-      return true
+      true
     else
-      # ログイン失敗
-      return false
+      false
     end
   end
 end
-

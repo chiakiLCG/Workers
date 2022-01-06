@@ -1,0 +1,146 @@
+<!-- fontawesome -->
+<script src="https://kit.fontawesome.com/af75622bf0.js" crossorigin="anonymous"></script>
+
+<title>詳細 | Workers</title>
+<body class="text-center bg-light">
+  <form class="mx-auto col-lg-9 rounded bg-white form-time-table" action="index.erb">
+      <h1 class="h3 my-3">月別リスト</h1>
+
+        <%= link_to 'Logout', logout_path, method: :delete %>
+
+    <select class="form-select rounded-pill mb-3" aria-label="Default select example">
+      <option>2021/01</option>
+      <option>2021/02</option>
+      <option>2021/03</option>
+      <option>2021/04</option>
+      <option>2021/05</option>
+      <option>2021/06</option>
+      <option>2021/07</option>
+      <option>2021/08</option>
+      <option>2021/09</option>
+      <option>2021/10</option>
+      <option>2021/11</option>
+      <option>2021/12</option>
+    </select>
+
+    <div class="card text-start my-4" style="width: auto;">
+      <div class="card-header">
+        実働日数
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+      </ul>
+    </div>
+
+    <div class="card text-start my-4" style="width: auto;">
+      <div class="card-header">
+        残業時間
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+      </ul>
+    </div>
+
+    <div class="card text-start my-4" style="width: auto;">
+      <div class="card-header">
+        残有給休暇
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+      </ul>
+    </div>
+
+
+    <table class="table table-bordered">
+      <thead>
+        <tr class="bg-light">
+          <th scope="col">日</th>
+          <th scope="col">出勤</th>
+          <th scope="col">退勤</th>
+          <th scope="col">休憩</th>
+          <th scope="col">業務内容</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @works.each do |work| %>
+        <tr>
+          <th><%= l work.date, format: :short, default: '-' %></th>
+          <td><%= l work.start_time, format: :short, default: '-' %></td>
+          <td><%= l work.end_time, format: :short, default: '-' %></td>
+          <td><%= l work.break_time, format: :short, default: '-' %></td>
+          <td><%= work.comment %></td>
+          <td><button type="button" class="btn btn-default h-auto py-0" data-toggle="modal" data-target="#inputModal"> <i class="fas fa-pencil-alt"></i></button></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </form>
+</body>
+
+<!-- Modal -->
+<%= form_with(model: @work, local:true) do |f| %>
+  <div class="modal fade" id="inputModal" tabindex="-1" aria-labelledby="inputModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inputModalLabel">日報登録</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="alert alert-primary" role="alert">
+              <p id="showTime"></p>
+            </div>
+            <div class="row">
+              <div class="col-5 pr-1">
+                <div class="input-group">
+                  <input type="time" class="form-control" id="start_time" placeholder="出勤"
+                  name="start_time">
+                  <button type="button" class="input-group-text" id="start_btn">出勤</button>
+                </div>
+              </div>
+              <div class="col-5 px-1">
+                <div class="input-group">
+                  <input type="time" class="form-control" placeholder="退勤" id="end_time"
+                  name="end_time">
+                  <button type="button" class="input-group-text" id="end_btn">退勤</button>
+                </div>
+              </div>
+              <div class="col-2 pl-1">
+                <input type="text" class="form-control" placeholder="休憩" name="break_time" value="01:00">
+              </div>
+            </div>
+            <div class="mb-3 pt-3">
+              <textarea class="form-control" name="comment" rows="5" placeholder="業務内容"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "登録", class: "btn btn-primary text-white rounded-pill px-5" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<script>
+var inputModal = new bootstrap.Modal(document.getElementById('inputModal'));
+inputModal.toggle();
+
+$('#start_btn').click(function(){
+  const now = new Date();
+  const hour = now.getHours().toString().padStart(2,'0');
+  const minute = now.getMinutes().toString().padStart(2,'0');
+  $('#start_time').val(hour+':'+minute);
+})
+
+$('#end_btn').click(function(){
+  const now = new Date();
+  const hour = now.getHours().toString().padStart(2,'0');
+  const minute = now.getMinutes().toString().padStart(2,'0');
+  $('#end_time').val(hour+':'+minute);
+})
+</script>
